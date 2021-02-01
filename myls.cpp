@@ -9,27 +9,39 @@
 #include <sys/types.h>
 //#include <unistd.h>
 using namespace std;
-
-//Vivians local machine version
-//tester
-//testing github
-//now viv testing github
-
 using std::cout;
 using std::endl;
 
 int main (int argc, char *argv[])
 {
+    bool show_all = false;
 
-    // 1/29 10:52pm this compiles with no errors, prints the files in the directories
-    // still need to add the output for just "myls", -h check
-    // testing prints dots before the filename ?? idk why we have to figure that out
+    //the user only entered "myls" 
+	if (argc == 1)
+    { 
+        //pointer to directory stream of type DIR, DIR is a structure that represents a directory stream
+        DIR *directory_path = NULL;
+        //name of files/what's in directory is stored in d_pathr, 
+        struct dirent *d_pathtr = NULL;     
 
-    bool show_all = false;	
-
-	if (argc == 1) //the user only entered "myls" 
-    {
-        //print all the directories in the current path
+        //creates the directory stream, returns a pointer to it
+        //passing in "." into opendir returns the directory stream of the current directory
+        if ((directory_path = opendir(".")) == NULL) //check if the directory exists
+		{
+            //fix to actual current directory
+			cout << "Cannot access " << "current directoty" << "\n";
+		}
+		else 
+		{
+                //if readdir fails, d_pathr will be null and while loop ends, 
+                //else, d_pathr will be a dirent struct and readdir returns the next d_pathr 
+                // which are files inside the current directory
+                while ( (d_pathtr = readdir(directory_path)) != NULL )
+			    {
+                    //prints out all the files in the directory_path stream using the d_name field
+				    cout << d_pathtr->d_name << "\n";	
+                }		      
+		}
     }
     
     
@@ -42,8 +54,8 @@ int main (int argc, char *argv[])
         	show_all = true;
     	}
 		
-		DIR *directory_path = NULL;
-		struct dirent *d_pathtr = NULL;
+        DIR *directory_path = NULL;
+        struct dirent *d_pathtr = NULL;
 		
 		if ((directory_path = opendir(argv[i])) == NULL) //check if the directory exists
 		{
@@ -52,12 +64,12 @@ int main (int argc, char *argv[])
 		else 
 		{
             //if (hidden == true) //&&  // if it starts with ., don't print it
-            {
                 while ( (d_pathtr = readdir(directory_path)) != NULL )
 			    {
+                    //something to do with struct
 				    cout << d_pathtr->d_name << "\n";
 			    }
-            }
+            
 		}
 	}
 }

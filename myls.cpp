@@ -29,7 +29,7 @@ int main (int argc, char *argv[])
         if ((directory_path = opendir(".")) == NULL) //check if the directory exists
 		{
             //fix to actual current directory
-			cout << "Cannot access " << "current directoty" << "\n";
+			cout << "Cannot access " << "current directory" << "\n";
 		}
 		else 
 		{
@@ -52,11 +52,11 @@ int main (int argc, char *argv[])
     	{
         	//set flag
         	show_all = true;
+			continue;
     	}
 		
 		DIR *directory_path = NULL; // has the path of the directory
 		struct dirent *d_pathtr = NULL; // struct contains the directory entries
-		// https://www.thegeekstuff.com/2012/06/c-directory/
 		
 		if ((directory_path = opendir(argv[i])) == NULL) //check if the directory exists
 		{

@@ -1,0 +1,73 @@
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls
+dir1
+dir2
+helloworld
+helloworld.cpp
+helloworld.dSYM
+makefile
+myls
+myls.cpp
+myls.dSYM
+myls.exe
+myls.o
+README.md
+tester.cpp
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls -h
+.
+..
+.git
+.vscode
+dir1
+dir2
+helloworld
+helloworld.cpp
+helloworld.dSYM
+makefile
+myls
+myls.cpp
+myls.dSYM
+myls.exe
+myls.o
+README.md
+tester.cpp
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls dir1
+dir1
+file1
+test
+test3
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls -h dir1
+dir1
+.
+..
+.test2
+file1
+test
+test3
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls dir1 dir2
+dir1
+file1
+test
+test3
+dir2
+file2
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls dir1 dir3
+dir1
+file1
+test
+test3
+Cannot access dir3
+
+C:\Users\anood\Documents\GitHub\CS-570-Assignment1>myls -h dir1 dir3
+dir1
+.
+..
+.test2
+file1
+test
+test3
+Cannot access dir3

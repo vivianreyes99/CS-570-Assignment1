@@ -56,9 +56,6 @@ int main (int argc, char *argv[]) {
            show_all = true;
            continue;
        }
-      
-       //DIR *directory_path = opendir(argv[i]); // has the path of the directory
-       //struct dirent *d_pathtr = NULL; // struct contains the directory entries
 
 	   printDir(argv[i], show_all); // calls function to print everything in this directory
    }
